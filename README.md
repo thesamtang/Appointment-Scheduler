@@ -25,6 +25,7 @@ For more information on Bootstrap: http://getbootstrap.com
 For more information on Firebase: https://www.firebase.com
 
 Structure:
+
 home.html- This is an page to split users between the students and professors functionality. Clicking Students leads to index.html. Clicking Professors leads to login.html.
 
 index.html-the students page. It allows students to choose a professor and then see which slots that professor has set to available. Students can then select timeslots and enter Name, Email and Reason for Visit in the modal form that is triggered by a click on an available slot. script.js contains the scripts run on this page to handle calls to the Firebase and the modal form.
@@ -36,6 +37,8 @@ profsPage.html- allows logged in professors to set or unset half hour timeslots 
 style.css- contains the majority of the CSS classes for this application.
 
 bootstrap.css-contains the CSS classes used to indicate availability of timeslots such as success and danger.
+
+=================================
 
 profScript.js
 
@@ -79,6 +82,7 @@ profScript Tips:
 -	The script relies upon consistency between the Firebase and the HTML. Remember to update the HTML and Firebase at the same time for most changes. If you update the Firebase but not the HTML you will not be able to undo changes you make (on this loading of the page). If you update the HTML but not the Firebase your changes won't be saved.
 -	Learn about the different event types for the .on() function. Some of them immediately return data, and some of them don't. All of them trigger asynchronously when their specified event occurs.
 
+=================================
 
 Script.js
 
@@ -120,6 +124,8 @@ $('#submit-button').click():
  $('#cancel-button').click():
 -	When the cancel function is clicked, the pop up box is hidden away and nothing gets changed or updated.
 
+=================================
+
 Styling/Bootstrap
 
 Overview
@@ -148,7 +154,7 @@ Although they currently are not functional, incorporating the navigator would be
 
 The cancel button in the modal form has a type of 'reset', which clears the form when the modal is closed.
 
-
+=================================
 
 Possible Extensions:
 
