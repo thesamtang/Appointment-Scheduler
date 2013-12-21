@@ -49,7 +49,7 @@ Table Filling:
 To fill every day of the week, fillDay() is called once for every day, Monday through Friday.
 
 function fillDay(professor, day):
--	Parameters are the professor�s name and the day we�'re iflling, both as strings.
+-	Parameters are the professor's name and the day we're iflling, both as strings.
 -	We construct a Firebase reference to the professor's day with a URL and the function parameters. The reference is stored in the var 'dayRef'.
 -	We call dayRef.on('child_added'). This returns all of the child data of the day we're looking at for the professor we're looking at as Firebase DataSnapshots.
 o	The direct children to dayRef will always be every timeslot in a day, regardless of whether the timeslot is Available, Taken, or Unavailable. As such, all timeslots will be considered. It also places an event listener on each Firebase timeslot which is triggered whenever children data is added to any timeslot. Each timeslot DataSnapshot is contained in the var 'snapshot'.
@@ -64,7 +64,7 @@ $('.half-hour-prof').mousedown():
 -	Pertinent variables are set from the id of the timeslot clicked on and the professor. We get a Firebase reference to the correct place ('profRef'), and strings of the time ('time') and day ('day').
 -	If the timeslot HTML element doesn't have the class 'danger' or the class 'success' (which are attached to timeslots which are Taken and Available), the HTML element gets the class success, its text is set to available, and a child is added to the correct Firebase timeslot. This child will be an object with available, name, email, and reason properties; the available property is set to 'Available', and the rest are set to '--'.
 o	Intuitively, this means that if a timeslot is Unavailable, it is made Available.
--	If the timeslot HTML element has either class 'danger' or class �sccess�,he HTML element is cleared of that class, its text is removed, and the Firebase representation of the timeslot is cleared.
+-	If the timeslot HTML element has either class 'danger' or class 'success',he HTML element is cleared of that class, its text is removed, and the Firebase representation of the timeslot is cleared.
 o	Intuitively, this means that if a timeslot is Available or Taken, it is made Unavailable.
 
 There is also code which allows a professor to click and drag their mouse over a number of timeslots, changing all of their statuses in the same way clicking on them would.
@@ -76,8 +76,8 @@ There is also code which allows a professor to click and drag their mouse over a
 
 profScript Tips:
 -	You can run into trouble with mistaking Firebase references for DataSnapshots and vice versa. Keep track of which one you're using, because they have different functions, and are initialized differently.
--	The script relies upon consistency between the Firebase and the HTML. Remember to update the HTML and Firebase at the same time for most changes. If you update the Firebase but not the HTML you will not be able to undo changes you make (on this loading of the page). If you update the HTML but not the Firebase your changes won�t be saved.
--	Learn about the different event types for the .on() function. Some of them immediately return data, and some of them don�t. All of them trigger asynchronously when their specified event occurs.
+-	The script relies upon consistency between the Firebase and the HTML. Remember to update the HTML and Firebase at the same time for most changes. If you update the Firebase but not the HTML you will not be able to undo changes you make (on this loading of the page). If you update the HTML but not the Firebase your changes won't be saved.
+-	Learn about the different event types for the .on() function. Some of them immediately return data, and some of them don't. All of them trigger asynchronously when their specified event occurs.
 
 
 Script.js
