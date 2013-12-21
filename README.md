@@ -101,7 +101,7 @@ Timeslot Status Changes:
 $('.half-hour').click():
 -	Pertinent variables are set from the id of the timeslot clicked on and the professor. We get a Firebase reference to the correct place ('profRef').
 -	If the timeslot HTML element has the class 'success' (which is attached to timeslot 'Available'), then a small box pops up where a student can enter information (name, email and reason for visit)
--	If the timeslot HTML element has the class 'danger' (which is attached to timeslot 'taken'), clicking it makes the class 'danger' be replaced with class success (hence, intuitively, the appointment is cancelled), and the time-slot is marked as available. Furthermore, the information about the student (their name, email and reason) is set to ��� (becomes empty again).
+-	If the timeslot HTML element has the class 'danger' (which is attached to timeslot 'taken'), clicking it makes the class 'danger' be replaced with class success (hence, intuitively, the appointment is cancelled), and the time-slot is marked as available. Furthermore, the information about the student (their name, email and reason) is set to '--' (becomes empty again).
 
 Updating the Firebase:
 After clicking an available time-slot, a box pops up, where a student can enter their name, email and reason. The box has three fields: 'Name,' 'Email' and 'Reason' as well as two buttons: 'Submit' and 'Cancel'.
