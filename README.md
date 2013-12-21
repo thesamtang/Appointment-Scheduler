@@ -10,9 +10,9 @@ The Meeting Scheduler is a web application for professors to be able to schedule
 Tools:
 Jquery: a javascript library used in our application for form actions and dynamic CSS manipulation. We chose to use this instead of pure javascript because of its sleeker, more compact format.
 
-Bootstrap: a HTML, CSS and Javascript framework which is generally intended for use in front end development. for this application we mainly used Bootstrap�s modal elements and CSS classes.
+Bootstrap: a HTML, CSS and Javascript framework which is generally intended for use in front end development. for this application we mainly used Bootstrap's modal elements and CSS classes.
 
-Firebase: A real-time backend database service that allowed us to upload JSON files with our data�s structure and then edit and keep track of edits in real time. This is how the timeslots' availability is stored and retrieved. The service has a Javascript API, as well as Java and Objective-C. 
+Firebase: A real-time backend database service that allowed us to upload JSON files with our data's structure and then edit and keep track of edits in real time. This is how the timeslots' availability is stored and retrieved. The service has a Javascript API, as well as Java and Objective-C. 
 
 For more information on HTML,CSS, or Javascript:
 http://www.w3schools.com
@@ -43,26 +43,26 @@ Overview:
 The script is split into two main parts:
 1.	It fills already-scheduled appointments from Firebase.
 2.	It allows professors to change the status of timeslots � unavailable timeslots can be made available, and available timeslots can be cancelled and made unavailable.
-These both occur on the loading of the page with jQuery�s .ready() event. The first thing that happens when the page is loaded is the acquisition of the correct professor�s name from the query string (which is the username submitted from the login screen).
+These both occur on the loading of the page with jQuery's .ready() event. The first thing that happens when the page is loaded is the acquisition of the correct professor's name from the query string (which is the username submitted from the login screen).
 
 Table Filling:
 To fill every day of the week, fillDay() is called once for every day, Monday through Friday.
 
 function fillDay(professor, day):
--	Parameters are the professor�s name and the day we�re filling, both as strings.
--	We construct a Firebase reference to the professor�s day with a URL and the function parameters. The reference is stored in the var �dayRef�.
--	We call dayRef.on(�child_added�). This returns all of the child data of the day we�re looking at for the professor we�re looking at as Firebase DataSnapshots.
-o	The direct children to dayRef will always be every timeslot in a day, regardless of whether the timeslot is Available, Taken, or Unavailable. As such, all timeslots will be considered. It also places an event listener on each Firebase timeslot which is triggered whenever children data is added to any timeslot. Each timeslot DataSnapshot is contained in the var �snapshot�.
+-	Parameters are the professor�s name and the day we�'re iflling, both as strings.
+-	We construct a Firebase reference to the professor's day with a URL and the function parameters. The reference is stored in the var 'dayRef'.
+-	We call dayRef.on('child_added'). This returns all of the child data of the day we're looking at for the professor we're looking at as Firebase DataSnapshots.
+o	The direct children to dayRef will always be every timeslot in a day, regardless of whether the timeslot is Available, Taken, or Unavailable. As such, all timeslots will be considered. It also places an event listener on each Firebase timeslot which is triggered whenever children data is added to any timeslot. Each timeslot DataSnapshot is contained in the var 'snapshot'.
 -	We then have an if statement with snapshot.hasChildren() as our condition. The DataSnapshot snapshot will have children if a timeslot is Available or Taken.
-o	We look at the children of snapshot. If there is a child with the value Available, we set the text of that timeslot in the HTML table to �Available� and add the class �available� to it.
-o	Else if there�s a child with the value Taken, we set the text of that timeslot in the HTML table to the name of the student who registered for the timeslot and add the class �danger� to it.
+o	We look at the children of snapshot. If there is a child with the value Available, we set the text of that timeslot in the HTML table to 'Available' and add the class 'available' to it.
+o	Else if there's a child with the value Taken, we set the text of that timeslot in the HTML table to the name of the student who registered for the timeslot and add the class 'danger' to it.
 
 Timeslot Status Changes:
 Click event handlers are attached to every timeslot with $('.half-hour-prof').mousedown().
 
 $('.half-hour-prof').mousedown():
--	Pertinent variables are set from the id of the timeslot clicked on and the professor. We get a Firebase reference to the correct place (�profRef�), and strings of the time (�time�) and day (�day�).
--	If the timeslot HTML element doesn�t have the class �danger� or the class �success� (which are attached to timeslots which are Taken and Available), the HTML element gets the class success, its text is set to available, and a child is added to the correct Firebase timeslot. This child will be an object with available, name, email, and reason properties; the available property is set to �Available�, and the rest are set to �--�.
+-	Pertinent variables are set from the id of the timeslot clicked on and the professor. We get a Firebase reference to the correct place ('profRef'), and strings of the time ('time') and day ('day').
+-	If the timeslot HTML element doesn't have the class �danger� or the class �scuess� (which are attached to timeslots which are Taken and Available), the HTML element gets the class success, its text is set to available, and a child is added to the correct Firebase timeslot. This child will be an object with available, name, email, and reason properties; the available property is set to �Available�, and the rest are set to �--�.
 o	Intuitively, this means that if a timeslot is Unavailable, it is made Available.
 -	If the timeslot HTML element has either class �danger� or class �success�, the HTML element is cleared of that class, its text is removed, and the Firebase representation of the timeslot is cleared.
 o	Intuitively, this means that if a timeslot is Available or Taken, it is made Unavailable.
