@@ -12,7 +12,7 @@ Jquery: a javascript library used in our application for form actions and dynami
 
 Bootstrap: a HTML, CSS and Javascript framework which is generally intended for use in front end development. for this application we mainly used Bootstrap�s modal elements and CSS classes.
 
-Firebase: A real-time backend database service that allowed us to upload JSON files with our data�s structure and then edit and keep track of edits in real time. This is how the timeslots� availability is stored and retrieved. The service has a Javascript API, as well as Java and Objective-C. 
+Firebase: A real-time backend database service that allowed us to upload JSON files with our data�s structure and then edit and keep track of edits in real time. This is how the timeslots' availability is stored and retrieved. The service has a Javascript API, as well as Java and Objective-C. 
 
 For more information on HTML,CSS, or Javascript:
 http://www.w3schools.com
